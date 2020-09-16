@@ -1,7 +1,7 @@
 /**
- *  BLOCK: Book Details
+ *  BLOCK: Newsletter
  *  ---
- *  Add details for a book to a post or page.
+ *  Create the newsletter blocks.
  */
 
 // Used to make item ids
@@ -16,8 +16,8 @@ const { InspectorControls, MediaUpload, MediaUploadCheck, RichText } = wp.blockE
 const { Button, PanelBody, PanelRow, ToggleControl } = wp.components
 const { Component } = wp.element
 
-registerBlockType('krystalmetzler-authorpal/author-details', {
-  title: __( 'Author Details' ),
+registerBlockType('davidyeiser-detailer/book-details', {
+  title: __( 'Series Information' ), // Block Title in UI
   icon: 'format-aside',
   category: 'common',
   keywords: [
@@ -27,11 +27,8 @@ registerBlockType('krystalmetzler-authorpal/author-details', {
 
   // Enable or disable support for low-level features
   supports: {
-    // Turn off ability to edit HTML of block content
     html: false,
-    // Turn off reusable block feature
     reusable: false,
-    // Add alignwide and alignfull options
     align: false
   },
 
@@ -45,18 +42,10 @@ registerBlockType('krystalmetzler-authorpal/author-details', {
       type: 'string',
       selector: 'js-book-details-title'
     },
-    author: {
-      type: 'string',
-      selector: 'js-book-details-author'
-    },
     summary: {
       type: 'string',
       selector: 'js-book-details-summary',
       multiline: 'p'
-    },
-    haveRead: {
-      type: 'boolean',
-      selector: 'js-book-details-read'
     }
   },
 
@@ -77,7 +66,7 @@ registerBlockType('krystalmetzler-authorpal/author-details', {
         <div className={className}>
 
           {/* Sidebar Controls */}
-          <InspectorControls>
+          {/* <InspectorControls>
             <PanelBody title={__('Book Status')}>
               <PanelRow>
                 <ToggleControl
@@ -89,11 +78,19 @@ registerBlockType('krystalmetzler-authorpal/author-details', {
                 />
               </PanelRow>
             </PanelBody>
-          </InspectorControls>
+          </InspectorControls> */}
 
-          <MediaUploadCheck>
+          <RichText
+            className="series-title"
+            value={attributes.title}
+            onChange={value => setAttributes({ title: value })}
+            tagName="h2"
+            placeholder="Series Title"
+          />
+
+          {/* <MediaUploadCheck>
             <MediaUpload
-              className="js-book-details-image wp-admin-book-details-image"
+              className="section-image"
               allowedTypes={['image']}
               multiple={false}
               value={image ? image.id : ''}
@@ -109,35 +106,27 @@ registerBlockType('krystalmetzler-authorpal/author-details', {
                       <Button onClick={() => setAttributes({ image: '' })} className="button is-small">Remove</Button>
                     </p>
                   </div> :
-                  <Button onClick={open} className="button">Upload Image</Button>
+                  <button onClick={open} className="button">Upload Image</button>
               )}
             />
-          </MediaUploadCheck>
+          </MediaUploadCheck> */}
 
           <RichText
-            className="js-book-details-title wp-admin-book-details-title"
-            value={attributes.title}
-            onChange={value => setAttributes({ title: value })}
-            tagName="h3"
-            placeholder="Book title"
-          />
-
-          <RichText
-            className="js-book-details-author wp-admin-book-details-author"
-            value={attributes.author}
-            onChange={value => setAttributes({ author: value })}
+            className="series-text"
+            value={attributes.text}
+            onChange={value => setAttributes({ text: value })}
             tagName="span"
-            placeholder="Book author"
+            placeholder="Series Description"
           />
 
-          <RichText
+          {/* <RichText
             className="js-book-details-summary wp-admin-book-details-summary"
             value={attributes.summary}
             onChange={value => setAttributes({ summary: value })}
             tagName="div"
             placeholder="Book summary"
             multiline="p"
-          />
+          /> */}
         </div>
       )
     }

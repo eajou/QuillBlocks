@@ -1,18 +1,15 @@
 <?php
 
-namespace KrystalMetzler\AuthorPal\Blocks\AuthorDetails;
+namespace DavidYeiser\Detailer\Blocks\BookDetails;
 
 add_action('plugins_loaded', __NAMESPACE__ . '\register_dynamic_block');
 
 function register_dynamic_block() {
-  // Only load if Gutenberg is available.
   if (!function_exists('register_block_type')) {
     return;
   }
 
-  // Hook server side rendering into render callback
-  // Make sure name matches registerBlockType in ./index.js
-  register_block_type('krystalmetzler-authorpal/author-details', array(
+  register_block_type('davidyeiser-detailer/book-details', array(
     'render_callback' => __NAMESPACE__ . '\render_dynamic_block'
   ));
 }
@@ -24,9 +21,7 @@ function render_dynamic_block($attributes) {
   $book_details_image_alt_text = $book_details_imageObj['alt'];
   $book_details_image_width = $book_details_imageObj['sizes']['full']['width'] / 2;
 
-  $book_details_have_read = $attributes['haveRead'];
   $book_details_title = $attributes['title'];
-  $book_details_author = $attributes['author'];
   $book_details_summary = $attributes['summary'];
 
   ob_start(); // Turn on output buffering
@@ -34,7 +29,7 @@ function render_dynamic_block($attributes) {
   /* BEGIN HTML OUTPUT */
 ?>
   <h3>TEST</h3>
-  <div class="block-book-details">
+  <div class="section block-book-details">
     <?php if ($book_details_have_read) : ?>
       <p><em>This book has been read.</em></p>
     <?php endif; ?>
@@ -44,7 +39,6 @@ function render_dynamic_block($attributes) {
     <?php endif; ?>
 
     <h3 class="block-book-details-title"><?php echo $book_details_title; ?></h3>
-    <span class="block-book-details-author"><?php echo $book_details_author; ?></span>
 
     <div class="block-book-details-summary">
       <?php echo $book_details_summary; ?>

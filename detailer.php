@@ -3,15 +3,17 @@
  *  Bootstrap file to launch the plugin.
  *
  *  @wordpress-plugin
- *  Plugin Name: AuthorPal
- *  Plugin URI:  https://lylaoweds.com
- *  Description: Plugin to create custom Gutenberg blocks for authors.
+ *  Plugin Name: Detailer2
+ *  Plugin URI:  https://github.com/davidyeiser/detailer
+ *  Description: Plugin to create custom Gutenberg block, Book Details.
  *  Version:     0.1
- *  Author:      Krystal Metzler
- *  Author URI:  https://lylaoweds.com
+ *  Author:      David Yeiser
+ *  Author URI:  https://davidyeiser.com/
+ *  License:     GPL2+
+ *  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-namespace KrystalMetzler\AuthorPal;
+namespace DavidYeiser\Detailer;
 
 //  Exit if accessed directly.
 defined('ABSPATH') || exit;
@@ -36,4 +38,4 @@ function _get_plugin_url() {
 include __DIR__ . '/lib/enqueue-scripts.php';
 
 // Load dynamic blocks
-include __DIR__ . '/blocks/author-details/index.php';
+include __DIR__ . '/blocks/book-details/index.php';

@@ -5,3 +5,10 @@
   margin-top: 24px;
 }
 
+.section-title {
+  background: gold;
+}
+
+.newsletter-header {
+  border: 2px solid red;
+}

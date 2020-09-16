@@ -1,3 +1,7 @@
-/* Custom Blocks */
+/* 
 
-import './author-details'
+    This Registers the Block 
+
+*/
+
+import './book-details'
