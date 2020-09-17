@@ -1,8 +1,6 @@
-.wp-admin-book-details-author {
-  font-style: italic;
-}
-.wp-admin-book-details-summary {
+.series-summary {
   margin-top: 24px;
+  background: pink;
 }
 
 .section-title {
@@ -11,4 +9,8 @@
 
 .newsletter-header {
   border: 2px solid red;
+}
+
+.components-button.is-small {
+  height: auto;
 }

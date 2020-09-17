@@ -31,15 +31,15 @@ function render_dynamic_block($attributes) {
   <div class="section">
     <div class="series-details">
 
-      <h3 class="block-book-details-title">
+      <h3>
         <?php echo $book_details_title; ?>
       </h3>
 
       <?php if ($book_details_image_url) : ?>
-        <img class="book-details-image" src="<?php echo $book_details_image_url; ?>" alt="<?php echo $book_details_image_alt_text; ?>" width="<?php echo $book_details_image_width; ?>" />
+        <img class="series-image" src="<?php echo $book_details_image_url; ?>" alt="<?php echo $book_details_image_alt_text; ?>" width="<?php echo $book_details_image_width; ?>" />
       <?php endif; ?>
 
-      <div class="block-book-details-summary">
+      <div class="series-summary">
         <?php echo $book_details_summary; ?>
       </div>
     </div>

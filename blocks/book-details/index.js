@@ -17,8 +17,8 @@ const { Button, PanelBody, PanelRow, ToggleControl } = wp.components
 const { Component } = wp.element
 
 registerBlockType('krystalm-quill/book-details', {
-  title: __( 'Series Information' ), // Block Title in UI
-  icon: 'format-aside',
+  title: __( 'Series Information' ), 
+  icon: 'book',
   category: 'common',
   keywords: [
     __( 'book' ),
@@ -36,17 +36,21 @@ registerBlockType('krystalm-quill/book-details', {
   attributes: {
     image: {
       type: 'object',
-      selector: 'js-book-details-image'
+      selector: 'series-image'
     },
     title: {
       type: 'string',
-      selector: 'js-book-details-title'
+      selector: 'series-title'
     },
     summary: {
       type: 'string',
-      selector: 'js-book-details-summary',
+      selector: 'series-summary',
       multiline: 'p'
-    }
+    },
+    link: {
+      type: 'string',
+      selector: 'series-button'
+    },  
   },
 
   // The UI for the WordPress editor
@@ -75,7 +79,7 @@ registerBlockType('krystalm-quill/book-details', {
 
           <MediaUploadCheck>
             <MediaUpload
-              className="section-image"
+              className="series-image"
               allowedTypes={['image']}
               multiple={false}
               value={image ? image.id : ''}
@@ -88,10 +92,12 @@ registerBlockType('krystalm-quill/book-details', {
                     </p>
 
                     <p>
-                      <Button onClick={() => setAttributes({ image: '' })} className="button is-small">Remove</Button>
+                      <Button onClick={() => setAttributes({ image: '' })} className="button is-small">Remove Image</Button>
                     </p>
                   </div> :
-                  <button onClick={open} className="button">Upload Image</button>
+                  <button onClick={open} className="button">
+                    Upload Image
+                  </button>
               )}
             />
           </MediaUploadCheck>
@@ -104,6 +110,14 @@ registerBlockType('krystalm-quill/book-details', {
             placeholder="Book summary"
             multiline="p"
           />
+
+          <RichText
+            className="series-link"
+            value={attributes.link}
+            onChange={value => setAttributes({ link: value })}
+            tagName="a"
+            placeholder="Series Link"
+          />          
         </div>
       )
     }
