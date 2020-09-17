@@ -1,5 +1,5 @@
 {
-  "name": "detailer",
+  "name": "authorPal",
   "version": "0.2.0",
   "license": "MIT",
   "main": "blocks/index.js",

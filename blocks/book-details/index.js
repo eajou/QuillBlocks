@@ -1,7 +1,7 @@
 /**
- *  BLOCK: Newsletter
+ *  BLOCK: Series
  *  ---
- *  Create the newsletter blocks.
+ *  Create the series blocks.
  */
 
 // Used to make item ids
@@ -65,21 +65,6 @@ registerBlockType('davidyeiser-detailer/book-details', {
       return (
         <div className={className}>
 
-          {/* Sidebar Controls */}
-          {/* <InspectorControls>
-            <PanelBody title={__('Book Status')}>
-              <PanelRow>
-                <ToggleControl
-                  className="js-book-details-read"
-                  label="Read"
-                  checked={haveRead}
-                  help={haveRead ? "This book has been read." : "Currently unread."}
-                  onChange={checked => setAttributes({ haveRead: checked })}
-                />
-              </PanelRow>
-            </PanelBody>
-          </InspectorControls> */}
-
           <RichText
             className="series-title"
             value={attributes.title}
@@ -88,7 +73,7 @@ registerBlockType('davidyeiser-detailer/book-details', {
             placeholder="Series Title"
           />
 
-          {/* <MediaUploadCheck>
+          <MediaUploadCheck>
             <MediaUpload
               className="section-image"
               allowedTypes={['image']}
@@ -109,7 +94,7 @@ registerBlockType('davidyeiser-detailer/book-details', {
                   <button onClick={open} className="button">Upload Image</button>
               )}
             />
-          </MediaUploadCheck> */}
+          </MediaUploadCheck>
 
           <RichText
             className="series-text"
@@ -118,15 +103,7 @@ registerBlockType('davidyeiser-detailer/book-details', {
             tagName="span"
             placeholder="Series Description"
           />
-
-          {/* <RichText
-            className="js-book-details-summary wp-admin-book-details-summary"
-            value={attributes.summary}
-            onChange={value => setAttributes({ summary: value })}
-            tagName="div"
-            placeholder="Book summary"
-            multiline="p"
-          /> */}
+          
         </div>
       )
     }
