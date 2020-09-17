@@ -1,6 +1,6 @@
 <?php
 
-namespace DavidYeiser\Detailer\Blocks\BookDetails;
+namespace KrystalM\Quill\Blocks\BookDetails;
 
 add_action('plugins_loaded', __NAMESPACE__ . '\register_dynamic_block');
 
@@ -9,7 +9,7 @@ function register_dynamic_block() {
     return;
   }
 
-  register_block_type('davidyeiser-detailer/book-details', array(
+  register_block_type('krystalm-quill/book-details', array(
     'render_callback' => __NAMESPACE__ . '\render_dynamic_block'
   ));
 }

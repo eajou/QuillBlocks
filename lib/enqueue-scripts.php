@@ -1,6 +1,6 @@
 <?php
 
-namespace DavidYeiser\Detailer;
+namespace KrystalM\Quill;
 
 /**
  *  Enqueue JavaScript and CSS
@@ -13,7 +13,7 @@ function enqueue_block_editor_assets() {
 
   // Enqueue the bundled block JS file
   wp_enqueue_script(
-    'davidyeiser/detailer/blocks-js',
+    '/quill/blocks-js',
     _get_plugin_url() . $block_path,
     ['wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor'],
     null
@@ -21,7 +21,7 @@ function enqueue_block_editor_assets() {
 
   // Enqueue optional editor-only styles
   wp_enqueue_style(
-    'davidyeiser/detailer/blocks-editor-css',
+    '/quill/blocks-editor-css',
     _get_plugin_url() . $style_path,
     [],
     null

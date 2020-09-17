@@ -3,17 +3,17 @@
  *  Bootstrap file to launch the plugin.
  *
  *  @wordpress-plugin
- *  Plugin Name: authorPal
+ *  Plugin Name: Quill Blocks
  *  Plugin URI:  https://github.com/eajou
- *  Description: Plugin to create authorPal, an author plugin.
+ *  Description: Plugin to create custom Gutenberg block, Book Details.
  *  Version:     0.1
- *  Author:      Krystal Metzler
+ *  Author:      Krystal M
  *  Author URI:  https://lylaoweds.com
  *  License:     GPL2+
  *  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-namespace DavidYeiser\Detailer;
+namespace KrystalM\Quill;
 
 //  Exit if accessed directly.
 defined('ABSPATH') || exit;

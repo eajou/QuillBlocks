@@ -1,7 +1,7 @@
 /**
- *  BLOCK: Series
+ *  BLOCK: Newsletter
  *  ---
- *  Create the series blocks.
+ *  Create the newsletter blocks.
  */
 
 // Used to make item ids
@@ -16,7 +16,7 @@ const { InspectorControls, MediaUpload, MediaUploadCheck, RichText } = wp.blockE
 const { Button, PanelBody, PanelRow, ToggleControl } = wp.components
 const { Component } = wp.element
 
-registerBlockType('davidyeiser-detailer/book-details', {
+registerBlockType('krystalm-quill/book-details', {
   title: __( 'Series Information' ), // Block Title in UI
   icon: 'format-aside',
   category: 'common',
@@ -65,6 +65,21 @@ registerBlockType('davidyeiser-detailer/book-details', {
       return (
         <div className={className}>
 
+          {/* Sidebar Controls */}
+          {/* <InspectorControls>
+            <PanelBody title={__('Book Status')}>
+              <PanelRow>
+                <ToggleControl
+                  className="js-book-details-read"
+                  label="Read"
+                  checked={haveRead}
+                  help={haveRead ? "This book has been read." : "Currently unread."}
+                  onChange={checked => setAttributes({ haveRead: checked })}
+                />
+              </PanelRow>
+            </PanelBody>
+          </InspectorControls> */}
+
           <RichText
             className="series-title"
             value={attributes.title}
@@ -73,7 +88,7 @@ registerBlockType('davidyeiser-detailer/book-details', {
             placeholder="Series Title"
           />
 
-          <MediaUploadCheck>
+          {/* <MediaUploadCheck>
             <MediaUpload
               className="section-image"
               allowedTypes={['image']}
@@ -94,7 +109,7 @@ registerBlockType('davidyeiser-detailer/book-details', {
                   <button onClick={open} className="button">Upload Image</button>
               )}
             />
-          </MediaUploadCheck>
+          </MediaUploadCheck> */}
 
           <RichText
             className="series-text"
@@ -103,7 +118,15 @@ registerBlockType('davidyeiser-detailer/book-details', {
             tagName="span"
             placeholder="Series Description"
           />
-          
+
+          {/* <RichText
+            className="js-book-details-summary wp-admin-book-details-summary"
+            value={attributes.summary}
+            onChange={value => setAttributes({ summary: value })}
+            tagName="div"
+            placeholder="Book summary"
+            multiline="p"
+          /> */}
         </div>
       )
     }
