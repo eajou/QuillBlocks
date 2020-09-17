@@ -28,22 +28,23 @@ function render_dynamic_block($attributes) {
 
   /* BEGIN HTML OUTPUT */
 ?>
-  <h3>TEST</h3>
-  <div class="section block-book-details">
-    <?php if ($book_details_have_read) : ?>
-      <p><em>This book has been read.</em></p>
-    <?php endif; ?>
+  <div class="section">
+    <div class="series-details">
 
-    <?php if ($book_details_image_url) : ?>
-      <img class="book-details-image" src="<?php echo $book_details_image_url; ?>" alt="<?php echo $book_details_image_alt_text; ?>" width="<?php echo $book_details_image_width; ?>" />
-    <?php endif; ?>
+      <h3 class="block-book-details-title">
+        <?php echo $book_details_title; ?>
+      </h3>
 
-    <h3 class="block-book-details-title"><?php echo $book_details_title; ?></h3>
+      <?php if ($book_details_image_url) : ?>
+        <img class="book-details-image" src="<?php echo $book_details_image_url; ?>" alt="<?php echo $book_details_image_alt_text; ?>" width="<?php echo $book_details_image_width; ?>" />
+      <?php endif; ?>
 
-    <div class="block-book-details-summary">
-      <?php echo $book_details_summary; ?>
+      <div class="block-book-details-summary">
+        <?php echo $book_details_summary; ?>
+      </div>
     </div>
   </div>
+
 <?php
   /* END HTML OUTPUT */
 

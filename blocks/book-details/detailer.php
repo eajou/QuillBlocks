@@ -3,9 +3,9 @@
  *  Bootstrap file to launch the plugin.
  *
  *  @wordpress-plugin
- *  Plugin Name: authorPal
+ *  Plugin Name: QuillBlocks
  *  Plugin URI:  https://github.com/eajou
- *  Description: Plugin to create authorPal, an author plugin.
+ *  Description: Plugin to create QuillBlocks, an author plugin.
  *  Version:     0.1
  *  Author:      Krystal Metzler
  *  Author URI:  https://lylaoweds.com
