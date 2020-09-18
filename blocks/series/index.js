@@ -34,10 +34,6 @@ registerBlockType('krystalm-quill/book-details', {
 
   // Set up data model for custom block
   attributes: {
-    div: {
-      type: 'string',
-      selector: 'block-div'
-    },    
     image: {
       type: 'object',
       selector: 'series-image'
@@ -54,7 +50,7 @@ registerBlockType('krystalm-quill/book-details', {
     link: {
       type: 'string',
       selector: 'series-link'
-    },  
+    }, 
   },
   // The UI for the WordPress editor
   edit: class BookDetails extends Component {
@@ -71,14 +67,6 @@ registerBlockType('krystalm-quill/book-details', {
 
       return (
         <div className={className}>
-
-          <RichText
-            className="block-div"
-            value={attributes.div}
-            onChange={value => setAttributes({ div: value })}
-            tagName="p"
-            placeholder="Block ID"
-          />          
 
           <RichText
             className="series-title"
