@@ -23,6 +23,8 @@ function render_dynamic_block($attributes) {
   $series_title = $attributes['title'];
   $series_summary = $attributes['summary'];
   $series_link = $attributes['link'];
+  
+  $block_div = $attributes['div'];
 
   ob_start(); // Turn on output buffering
 
@@ -30,6 +32,8 @@ function render_dynamic_block($attributes) {
 ?>
   <div class="section">
     <div class="series-details">
+
+      <p><?php echo $block_div; ?></p>
 
       <h3>
         <?php echo $series_title; ?>
