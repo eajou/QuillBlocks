@@ -20,6 +20,7 @@ function render_dynamic_block($attributes) {
   $series_image_url = $series_imageObj['sizes']['full']['url'];
   $series_image_alt_text = $series_imageObj['alt'];
 
+  $series_id = $attributes['id'];
   $series_title = $attributes['title'];
   $series_summary = $attributes['summary'];
   $series_link = $attributes['link'];
@@ -31,7 +32,7 @@ function render_dynamic_block($attributes) {
   <div class="section">
     <div class="series-display">
 
-      <div id="" class="series">
+      <div id="<?php echo $series_id; ?>" class="series">
         <div class="image">
           <img src="/assets/series/grimm.png" alt="Grimm Cases Series">
         </div>

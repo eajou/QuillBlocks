@@ -38,6 +38,10 @@ registerBlockType('krystalm-quill/book-details', {
       type: 'object',
       selector: 'series-image'
     },
+    id: {
+      type: 'string',
+      selector: 'series-id'
+    },    
     title: {
       type: 'string',
       selector: 'series-title'
@@ -66,7 +70,50 @@ registerBlockType('krystalm-quill/book-details', {
       const { haveRead, image } = attributes
 
       return (
-        <div className={className}>
+        <div className="series-block">
+
+          {/* Sidebar Controls */}
+          <InspectorControls>
+            <PanelBody title={__('Series ID')}>
+              <PanelRow>
+                <RichText
+                  value={attributes.id}
+                  onChange={value => setAttributes({ id: value })}
+                  tagName="p"
+                  placeholder="Series ID"
+                />
+              </PanelRow>
+            </PanelBody>    
+
+            <PanelBody title={__('Book Display')}>
+              <PanelRow>
+                <MediaUploadCheck>
+                  <MediaUpload
+                    className="book-image"
+                    allowedTypes={['image']}
+                    multiple={false}
+                    value={image ? image.id : ''}
+                    onSelect={image => setAttributes({ image: image })}
+                    render={({ open }) => (
+                      image ?
+                        <div>
+                          <p>
+                            <img src={image.url} width={image.width / 2} />
+                          </p>
+
+                          <p>
+                            <Button onClick={() => setAttributes({ image: '' })} className="button is-small">Remove Image</Button>
+                          </p>
+                        </div> :
+                        <button onClick={open} className="button">
+                          Upload Image
+                        </button>
+                    )}
+                  />
+                </MediaUploadCheck>
+              </PanelRow>
+            </PanelBody>        
+          </InspectorControls>          
 
           <RichText
             className="series-title"
@@ -76,33 +123,8 @@ registerBlockType('krystalm-quill/book-details', {
             placeholder="Series Title"
           />
 
-          <MediaUploadCheck>
-            <MediaUpload
-              className="series-image"
-              allowedTypes={['image']}
-              multiple={false}
-              value={image ? image.id : ''}
-              onSelect={image => setAttributes({ image: image })}
-              render={({ open }) => (
-                image ?
-                  <div>
-                    <p>
-                      <img src={image.url} width={image.width / 2} />
-                    </p>
-
-                    <p>
-                      <Button onClick={() => setAttributes({ image: '' })} className="button is-small">Remove Image</Button>
-                    </p>
-                  </div> :
-                  <button onClick={open} className="button">
-                    Upload Image
-                  </button>
-              )}
-            />
-          </MediaUploadCheck>
-
           <RichText
-            className="js-book-details-summary wp-admin-book-details-summary"
+            className="series-summary"
             value={attributes.summary}
             onChange={value => setAttributes({ summary: value })}
             tagName="div"
