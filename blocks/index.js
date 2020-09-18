@@ -4,4 +4,4 @@
 
 */
 
-import './book-details'
+import './series'
