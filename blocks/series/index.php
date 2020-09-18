@@ -1,6 +1,6 @@
 <?php
 
-namespace KrystalM\Quill\Blocks\BookDetails;
+namespace KrystalM\Quill\Blocks\Series;
 
 add_action('plugins_loaded', __NAMESPACE__ . '\register_dynamic_block');
 
@@ -16,13 +16,13 @@ function register_dynamic_block() {
 
 function render_dynamic_block($attributes) {
   // Parse attributes
-  $book_details_imageObj = $attributes['image'];
-  $book_details_image_url = $book_details_imageObj['sizes']['full']['url'];
-  $book_details_image_alt_text = $book_details_imageObj['alt'];
-  $book_details_image_width = $book_details_imageObj['sizes']['full']['width'] / 2;
+  $series_imageObj = $attributes['image'];
+  $series_image_url = $series_imageObj['sizes']['full']['url'];
+  $series_image_alt_text = $series_imageObj['alt'];
 
-  $book_details_title = $attributes['title'];
-  $book_details_summary = $attributes['summary'];
+  $series_title = $attributes['title'];
+  $series_summary = $attributes['summary'];
+  $series_link = $attributes['link'];
 
   ob_start(); // Turn on output buffering
 
@@ -32,16 +32,25 @@ function render_dynamic_block($attributes) {
     <div class="series-details">
 
       <h3>
-        <?php echo $book_details_title; ?>
+        <?php echo $series_title; ?>
       </h3>
 
-      <?php if ($book_details_image_url) : ?>
-        <img class="series-image" src="<?php echo $book_details_image_url; ?>" alt="<?php echo $book_details_image_alt_text; ?>" width="<?php echo $book_details_image_width; ?>" />
+      <?php if ($series_image_url) : ?>
+        <img 
+          class="series-image" 
+          src="<?php echo $series_image_url; ?>" 
+          alt="<?php echo $series_image_alt_text; ?>"  />
       <?php endif; ?>
 
       <div class="series-summary">
-        <?php echo $book_details_summary; ?>
+        <?php echo $series_summary; ?>
       </div>
+
+      <?php if ($series_link) : ?>
+        <button>
+          <?php echo $series_link; ?>
+        </button>
+      <?php endif; ?>
     </div>
   </div>
 

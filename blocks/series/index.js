@@ -49,10 +49,9 @@ registerBlockType('krystalm-quill/book-details', {
     },
     link: {
       type: 'string',
-      selector: 'series-button'
+      selector: 'series-link'
     },  
   },
-
   // The UI for the WordPress editor
   edit: class BookDetails extends Component {
     constructor() {
