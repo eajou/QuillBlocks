@@ -19,8 +19,9 @@ const { Component } = wp.element
 registerBlockType('krystalm-quill/series', {
   title: __( 'Quill - Series Information' ), 
   icon: 'book',
-  category: 'common',
+  category: 'custom',
   keywords: [
+    __( 'quill' ),
     __( 'book' ),
     __( 'details' ),
   ],
@@ -51,10 +52,6 @@ registerBlockType('krystalm-quill/series', {
       selector: 'series-summary',
       multiline: 'p'
     },
-    link: {
-      type: 'string',
-      selector: 'series-link'
-    }, 
   },
   // The UI for the WordPress editor
   edit: class BookDetails extends Component {
@@ -63,11 +60,8 @@ registerBlockType('krystalm-quill/series', {
     }
 
     render() {
-      // Pull out the props we'll use
       const { attributes, className, setAttributes } = this.props
-
-      // Pull out specific attributes for clarity below
-      const { haveRead, image } = attributes
+      const { image } = attributes
 
       return (
         <div className="series-block">
@@ -89,7 +83,6 @@ registerBlockType('krystalm-quill/series', {
               <PanelRow>
                 <MediaUploadCheck>
                   <MediaUpload
-                    className="book-image"
                     allowedTypes={['image']}
                     multiple={false}
                     value={image ? image.id : ''}
@@ -112,7 +105,7 @@ registerBlockType('krystalm-quill/series', {
                   />
                 </MediaUploadCheck>
               </PanelRow>
-            </PanelBody>        
+            </PanelBody>    
           </InspectorControls>          
 
           <RichText
@@ -130,15 +123,7 @@ registerBlockType('krystalm-quill/series', {
             tagName="div"
             placeholder="Book summary"
             multiline="p"
-          />
-
-          <RichText
-            className="series-link"
-            value={attributes.link}
-            onChange={value => setAttributes({ link: value })}
-            tagName="a"
-            placeholder="Series Link"
-          />          
+          />        
         </div>
       )
     }

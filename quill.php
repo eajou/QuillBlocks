@@ -39,4 +39,3 @@ include __DIR__ . '/lib/enqueue-scripts.php';
 
 // Load dynamic blocks
 include __DIR__ . '/blocks/series/index.php';
-include __DIR__ . '/blocks/series-title/index.php';

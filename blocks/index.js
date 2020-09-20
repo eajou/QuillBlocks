@@ -5,4 +5,3 @@
 */
 
 import './series'
-import './series-title'
