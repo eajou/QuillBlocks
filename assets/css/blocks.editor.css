@@ -1,16 +1,18 @@
 .series-summary {
   margin-top: 24px;
-  background: pink;
 }
 
-.section-title {
-  background: gold;
-}
-
-.newsletter-header {
-  border: 2px solid red;
+.series-title {
+  color: #4e563a;
+  font-style: italic;
 }
 
 .components-button.is-small {
   height: auto;
+}
+
+.block-editor-block-list__layout .wp-block {
+  border-left: 3px solid #7e8993;
+  box-sizing: border-box;
+  padding: 0 0 0 20px;
 }

@@ -9,7 +9,7 @@ function register_dynamic_block() {
     return;
   }
 
-  register_block_type('krystalm-quill/book-details', array(
+  register_block_type('krystalm-quill/series', array(
     'render_callback' => __NAMESPACE__ . '\render_dynamic_block'
   ));
 }
@@ -18,58 +18,40 @@ function render_dynamic_block($attributes) {
   // Parse attributes
   $series_imageObj = $attributes['image'];
   $series_image_url = $series_imageObj['sizes']['full']['url'];
-  $series_image_alt_text = $series_imageObj['alt'];
+  $series_image_alt_text = $series_imageObj['alt']; 
 
   $series_id = $attributes['id'];
   $series_title = $attributes['title'];
   $series_summary = $attributes['summary'];
-  $series_link = $attributes['link'];
   
   ob_start(); // Turn on output buffering
 
   /* BEGIN HTML OUTPUT */
 ?>
-  <div class="section">
-    <div class="series-display">
+  <div class="series-display">
 
+    <?php if ($series_id) : ?>
       <div id="<?php echo $series_id; ?>" class="series">
+    <?php else: ?>
+      <div id="" class="series">
+    <?php endif; ?>
+
+      <?php if ($series_image_url) : ?>
         <div class="image">
-          <img src="/assets/series/grimm.png" alt="Grimm Cases Series">
+          <img src="<?php echo $series_image_url; ?>" alt="<?php echo $series_image_alt_text; ?>">
         </div>
+      <?php endif; ?>          
+
+      <div class="info">
+        <h2><?php echo $series_title; ?></h2>
         
-        <div class="info">
-          <h2><?php echo $series_title; ?></h2>
-          
-          <div class="series-summary">
-            <?php echo $series_summary; ?>
-          </div>
+        <div class="series-summary">
+          <?php echo $series_summary; ?>
         </div>
       </div>
-      
-      <div class="book">
-        <div class="info">
-          <h3>The Series</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-          aliquip ex ea commodo consequat.</p>
-          
-          <?php if ($series_link) : ?>
-            <button>
-              <?php echo $series_link; ?>
-            </button>
-          <?php endif; ?>
-        </div>
 
-        <?php if ($series_image_url) : ?>
-          <div class="image">        
-            <img 
-              class="series-image" 
-              src="<?php echo $series_image_url; ?>" 
-              alt="<?php echo $series_image_alt_text; ?>"  />
-          </div>
-        <?php endif; ?>
     </div>
+  
   </div>
 
 <?php
