@@ -9,7 +9,7 @@ function register_dynamic_block() {
     return;
   }
 
-  register_block_type('krystalm-quill/seriesInfo', array(
+  register_block_type('krystalm-quill/series-sub', array(
     'render_callback' => __NAMESPACE__ . '\render_dynamic_block'
   ));
 }
@@ -22,6 +22,7 @@ function render_dynamic_block($attributes) {
 
   $series_title = $attributes['title'];
   $series_summary = $attributes['summary'];
+  $series_link = $attributes['link'];
   
   ob_start(); // Turn on output buffering
 
@@ -35,6 +36,12 @@ function render_dynamic_block($attributes) {
         
         <div class="series-summary">
           <?php echo $series_summary; ?>
+
+          <?php if ($series_link) : ?>
+            <button>
+              <?php echo $series_link; ?>
+            </button>
+          <?php endif; ?>          
         </div>
       </div>
 

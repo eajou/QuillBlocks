@@ -16,7 +16,7 @@ const { InspectorControls, MediaUpload, MediaUploadCheck, RichText } = wp.blockE
 const { Button, PanelBody, PanelRow, ToggleControl } = wp.components
 const { Component } = wp.element
 
-registerBlockType('krystalm-quill/seriesInfo', {
+registerBlockType('krystalm-quill/series-sub', {
   title: __( 'Quill - Series Sub-section' ), 
   icon: 'book',
   category: 'custom',
@@ -48,6 +48,10 @@ registerBlockType('krystalm-quill/seriesInfo', {
       selector: 'series-summary',
       multiline: 'p'
     },
+    link: {
+      type: 'string',
+      selector: 'series-link'
+    },    
   },
   // The UI for the WordPress editor
   edit: class BookDetails extends Component {
@@ -97,8 +101,8 @@ registerBlockType('krystalm-quill/seriesInfo', {
             className="series-title"
             value={attributes.title}
             onChange={value => setAttributes({ title: value })}
-            tagName="h2"
-            placeholder="Series Title"
+            tagName="h3"
+            placeholder="Subsection Title"
           />
 
           <RichText
@@ -106,9 +110,17 @@ registerBlockType('krystalm-quill/seriesInfo', {
             value={attributes.summary}
             onChange={value => setAttributes({ summary: value })}
             tagName="div"
-            placeholder="Book summary"
+            placeholder="Book subsection summary"
             multiline="p"
-          />        
+          />       
+
+          <RichText
+            className="series-link"
+            value={attributes.link}
+            onChange={value => setAttributes({ link: value })}
+            tagName="a"
+            placeholder="Link to Series Page"
+          />           
         </div>
       )
     }
