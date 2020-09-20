@@ -16,8 +16,8 @@ const { InspectorControls, MediaUpload, MediaUploadCheck, RichText } = wp.blockE
 const { Button, PanelBody, PanelRow, ToggleControl } = wp.components
 const { Component } = wp.element
 
-registerBlockType('krystalm-quill/book-details', {
-  title: __( 'Series Information' ), 
+registerBlockType('krystalm-quill/series', {
+  title: __( 'Quill - Series Information' ), 
   icon: 'book',
   category: 'common',
   keywords: [

@@ -3,11 +3,11 @@
  *  Bootstrap file to launch the plugin.
  *
  *  @wordpress-plugin
- *  Plugin Name: Quill Blocks
+ *  Plugin Name: QuillBlocks
  *  Plugin URI:  https://github.com/eajou
- *  Description: Plugin to create custom Gutenberg block, Book Details.
+ *  Description: Plugin to create QuillBlocks, an author plugin.
  *  Version:     0.1
- *  Author:      Krystal M
+ *  Author:      Krystal Metzler
  *  Author URI:  https://lylaoweds.com
  *  License:     GPL2+
  *  License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -38,5 +38,4 @@ function _get_plugin_url() {
 include __DIR__ . '/lib/enqueue-scripts.php';
 
 // Load dynamic blocks
-include __DIR__ . '/blocks/series/index.php';
-include __DIR__ . '/blocks/series-title/index.php';
+include __DIR__ . '/blocks/book-details/index.php';
