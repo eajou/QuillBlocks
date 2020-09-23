@@ -38,5 +38,6 @@ function _get_plugin_url() {
 include __DIR__ . '/lib/enqueue-scripts.php';
 
 // Load dynamic blocks
+include __DIR__ . '/blocks/logo/index.php';
 include __DIR__ . '/blocks/series/index.php';
 include __DIR__ . '/blocks/series-sub/index.php';

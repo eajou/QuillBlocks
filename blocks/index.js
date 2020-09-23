@@ -4,5 +4,6 @@
 
 */
 
+import './logo'
 import './series'
 import './series-sub'
